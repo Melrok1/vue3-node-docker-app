@@ -1,11 +1,15 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import cors from 'cors'
 import { User } from './models/user.model'
 
 dotenv.config()
 
 const app = express()
+app.use(cors({
+  origin: process.env.ORIGIN_LOCAL
+}))
 const PORT = 3000
 
 const {
