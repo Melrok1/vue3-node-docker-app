@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { getAllUsers } from '@/services/user.service'
 import type { User } from '@/models/user.model'
