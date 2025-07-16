@@ -1,12 +1,13 @@
 <template>
   <div>
     <h1>List of all users:</h1>
-    <ul>
-      <li v-for="user in users" :key="user._id">
-        {{ user.name }} ({{ user.email }})
-        <pre> {{ user }} </pre>
-      </li>
-    </ul>
+    <DataTable :items="users" :headers="headers" :perPage="5">
+      <template #actions="{ item }">
+        <button @click="editUser(item)">✏️</button>
+        <button @click="deleteUser(item)">🗑️</button>
+      </template>
+
+    </DataTable>
   </div>
 </template>
 
@@ -14,16 +15,26 @@
 import { ref, onMounted } from 'vue'
 import { getAllUsers } from '@/services/user.service'
 import type { User } from '@/models/user.model'
+import DataTable from '@/components/base/DataTable.vue'
 
 const users = ref<User[]>([])
+const headers = [
+  { key: 'name', label: 'Meno' },
+  { key: 'email', label: 'Email' }
+]
 
-onMounted(async () => {
-  try {
-    users.value = await getAllUsers()
-  } catch (error) {
-    console.error('Failed to fetch users:', error)
-  }
-})
+async function reloadUsers () {
+  users.value = await getAllUsers()
+}
 
+function editUser (user: User) {
+  console.log('edit:', user)
+}
+
+function deleteUser (user: User) {
+  console.log('delete:', user)
+}
+
+onMounted(reloadUsers)
 
 </script>
