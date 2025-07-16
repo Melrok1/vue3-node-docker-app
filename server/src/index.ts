@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/users', async (req, res) => {
   try {
-    const users = await User.find() // ← MongoDB čítanie
+    const users = await User.find().sort({ createdAt: -1 }) // ← MongoDB čítanie
     res.json(users)
   } catch (error) {
     res.status(500).json({ message: 'Error fetching users', error })
