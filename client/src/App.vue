@@ -5,6 +5,7 @@
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
       <RouterLink to="/users">Users</RouterLink>
+      <RouterLink to="/settings">Settings</RouterLink>
     </nav>
   </header>
   <RouterView />
