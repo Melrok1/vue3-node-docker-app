@@ -25,19 +25,25 @@ import { ref } from 'vue'
 import { createUser } from '@/services/user.service'
 import BaseInput from '@/components/form/BaseInput.vue'
 
+const emit = defineEmits(['close', 'created'])
 const user = ref({
   name: '',
   email: ''
 })
 
-const emit = defineEmits(['close', 'created'])
-async function submitForm() {
+async function submitForm () {
   try {
-    await createUser(user.value)
+    const response = await createUser(user.value)
+    console.log('User created:', response)
+
+    user.value.name = ''
+    user.value.email = ''
+
     emit('created')
     emit('close')
   } catch (error) {
-    console.error('Failed to create user:', error)
+    console.error('❌ Failed to create user:', error)
+    // napr. zobraziť toast alebo hlášku
   }
 }
 
