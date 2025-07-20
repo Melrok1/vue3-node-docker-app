@@ -1,19 +1,15 @@
 
 <template>
   <header>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/users">Users</RouterLink>
-      <RouterLink to="/settings">Settings</RouterLink>
-    </nav>
+    <MainNav />
   </header>
   <RouterView />
 </template>
 
 <script setup lang="ts">
 
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import MainNav from '@/components/MainNav.vue'
 
 </script>
 
@@ -29,18 +25,6 @@ header {
   .logo {
     width: 125px;
     height: 125px;
-  }
-
-  nav {
-    a {
-      color: white;
-      text-decoration: none;
-      margin-right: 1rem;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
   }
 }
 
