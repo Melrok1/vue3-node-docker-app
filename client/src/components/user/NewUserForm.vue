@@ -1,23 +1,29 @@
 <template>
-  <div>
+  <div class="new-user-form__wrapper">
     <form @submit.prevent="submitForm">
-      <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" v-model="user.name" required />
-      </div>
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="user.email" required />
-      </div>
+      <BaseInput
+        v-model="user.name"
+        label="Meno"
+        placeholder="Zadajte meno"
+        :error="user.name"
+      />
+      <BaseInput
+        v-model="user.email"
+        label="Email"
+        type="email"
+        :error="user.email"
+      />
       <button type="submit">Create User</button>
+      <button @click="$emit('close')">Close</button>
     </form>
-    <button @click="$emit('close')">Close</button>
+    <div class="overlay" @click="$emit('close')"></div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue' 
 import { createUser } from '@/services/user.service'
+import BaseInput from '@/components/form/BaseInput.vue'
 
 const user = ref({
   name: '',
@@ -39,10 +45,30 @@ async function submitForm() {
 
 <style lang="scss" scoped>
 
-form {
+.new-user-form__wrapper {
+  position: fixed;
+  inset: 0;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    background: #fff;
+    padding: 3rem;
+    z-index: 10;
+  }
 }
 
 </style>
