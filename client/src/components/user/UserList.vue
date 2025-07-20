@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>List of all users:</h1>
+    <h1>{{ $t('form.userList.title') }}</h1>
     <DataTable :items="props.users" :headers="headers" :perPage="5">
       <template #actions="{ item }">
         <button @click="editUser(item)">✏️</button>
