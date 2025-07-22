@@ -3,15 +3,21 @@ import mongoose from 'mongoose'
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: [true, 'Name is required'],
+    minlength: [3, 'Name must be at least 3 characters'],
+    maxlength: [20, 'Name cannot exceed 20 characters'],
+    unique: true
   },
-  email: {
+ email: {
     type: String,
-    required: true,
+    required: [true, 'Email is required'],
+    match: [/.+@.+\..+/, 'Invalid email format'],
     unique: true
   }
-}, {
-  timestamps: true
+},
+{
+  timestamps: true,
+  strict: 'throw'
 })
 
 export const User = mongoose.model('User', userSchema)
