@@ -85,7 +85,7 @@ app.post('/api/users', async (req, res) => {
       errors.name = 'Name cannot exceed 20 characters'
     }
 
-    if (!email || !/.+@.+\..+/.test(email)) {
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       errors.email = 'Invalid email format'
     }
 
