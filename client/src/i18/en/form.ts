@@ -4,6 +4,12 @@ export default {
   userList: {
     title: 'List of all users'
   },
+  success: {
+    userCreated: 'User was successfully created'
+  },
+  actions: {
+    closeNow: 'Close now'
+  },
   errors: {
     requiredName: 'Name is required',
     requiredEmail: 'Email is required',

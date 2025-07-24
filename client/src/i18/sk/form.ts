@@ -4,6 +4,12 @@ export default {
   userList: {
     title: 'Zoznam všetkých používateľov'
   },
+  success: {
+    userCreated: 'Používateľ bol úspešne vytvorený'
+  },
+  actions: {
+    closeNow: 'Zatvoriť teraz'
+  },
   errors: {
     requiredName: 'Meno je povinné',
     requiredEmail: 'Email je povinný',
