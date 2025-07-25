@@ -148,7 +148,7 @@ async function submitForm () {
     gap: 1rem;
     button {
       margin-top: 1rem;
-      background: trans#cecece;
+      background: #cecece;
       border: none;
       color: #303030;
       cursor: pointer;

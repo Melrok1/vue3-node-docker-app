@@ -27,3 +27,20 @@ onMounted(() => {
 })
 
 </script>
+
+<style lang="scss" scoped>
+
+button {
+  background-color: $color-primary;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: darken($color-primary, 10%);
+  }
+}
+
+</style>

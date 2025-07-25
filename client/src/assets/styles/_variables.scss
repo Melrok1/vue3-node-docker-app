@@ -1,0 +1,11 @@
+$color-primary: #1d572e;
+$color-secondary: #e6f9ec;
+$color-danger: #d93025;
+$font-base: 'Inter', sans-serif;
+
+:root {
+  --color-primary: $color-primary;
+  --color-secondary: $color-secondary;
+  --color-danger: $color-danger;
+  --font-base: $font-base;
+}
