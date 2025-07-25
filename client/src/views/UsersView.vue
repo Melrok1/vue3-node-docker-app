@@ -29,6 +29,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+@use 'sass:color';
 
 button {
   background-color: $color-primary;
@@ -39,7 +40,7 @@ button {
   border-radius: 4px;
 
   &:hover {
-    background-color: darken($color-primary, 10%);
+    background-color: color.scale($color-primary, $lightness: -20%);
   }
 }
 

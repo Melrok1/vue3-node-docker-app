@@ -1,11 +1,9 @@
 $color-primary: #1d572e;
-$color-secondary: #e6f9ec;
 $color-danger: #d93025;
 $font-base: 'Inter', sans-serif;
 
-:root {
-  --color-primary: $color-primary;
-  --color-secondary: $color-secondary;
-  --color-danger: $color-danger;
-  --font-base: $font-base;
-}
+$color-bg-light: #ffffff;
+$color-text-light: #1a1a1a;
+
+$color-bg-dark: #121212;
+$color-text-dark: #e0e0e0;
