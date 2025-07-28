@@ -75,11 +75,11 @@ input {
 }
 
 input.has-error {
-  border-color: red;
+  border-color: var(--color-danger);
 }
 
 .error-message {
-  color: red;
+  color: var(--color-danger);
   font-size: 0.875rem;
 }
 </style>

@@ -2,7 +2,7 @@
 
 :root {
   --color-primary: #{vars.$color-primary};
-  --color-danger: #{vars.$color-danger};
+  --color-danger: #{vars.$color-danger-light};
   --font-base: #{vars.$font-base};
 
   --color-background: #{vars.$color-bg-light};
@@ -11,6 +11,7 @@
 }
 
 [data-theme='dark'] {
+  --color-danger: #{vars.$color-danger-dark};
   --color-background: #{vars.$color-bg-dark};
   --color-text: #{vars.$color-text-dark};
   --color-modal-bg: #{vars.$color-modal-bg-dark};

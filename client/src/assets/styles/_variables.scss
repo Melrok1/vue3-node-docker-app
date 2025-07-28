@@ -1,16 +1,18 @@
-// colors
-$color-primary: #1d572e;
-$color-danger: #d93025;
+// font
 $font-base: 'Inter', sans-serif;
 
+// colors
+$color-primary: #1d572e;
+    // --- light mode ---
+$color-danger-light: #ff1000;
 $color-bg-light: #ffffff;
 $color-text-light: #1a1a1a;
 $color-modal-bg-light: #ffffff;
-
-
+    // --- dark mode ---
+$color-danger-dark: #ff4d4f; //d93025
 $color-bg-dark: #121212;
 $color-text-dark: #e0e0e0;
-$color-modal-bg-dark: #5a5a5a;
+$color-modal-bg-dark: #2e2e2e;
 
 // Spacing
 $input-height-sm: 2rem;
