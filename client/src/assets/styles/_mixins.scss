@@ -1,0 +1,16 @@
+@use 'variables' as *;
+
+@mixin input-size($size) {
+  @if $size == sm {
+    height: $input-height-sm;
+    font-size: $font-size-sm;
+  } @else if $size == md {
+    height: $input-height-md;
+    font-size: $font-size-md;
+  } @else if $size == lg {
+    height: $input-height-lg;
+    font-size: $font-size-lg;
+  } @else {
+    @warn "Unknown input size `#{$size}`";
+  }
+}

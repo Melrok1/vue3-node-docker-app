@@ -13,8 +13,18 @@
         type="email"
         :error="error.email"
       />
-      <button type="submit">Create User</button>
-      <button @click="$emit('close')">Close</button>
+      <Button 
+        type="submit" 
+        variant="text"
+      >
+        Create User
+      </Button>
+      <Button 
+        @click="$emit('close')" 
+        variant="text"
+      >
+        Close
+      </Button>
     </form>
     <div v-else class="confirmation success">
       <p>{{ t('form.success.userCreated') }}</p>
@@ -34,8 +44,9 @@
 import { ref } from 'vue' 
 import { createUser } from '@/services/user.service'
 import { useI18n } from 'vue-i18n'
-import BaseInput from '@/components/form/BaseInput.vue'
+import BaseInput from '@/components/inputs/BaseInput.vue'
 import CountdownCircle from '@/components/animation/CountdownCircle.vue'
+import Button from '@/components/inputs/Button.vue'
 
 
 const MIN_NAME = 3
