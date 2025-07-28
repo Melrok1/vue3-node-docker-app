@@ -7,9 +7,11 @@
 
   --color-background: #{vars.$color-bg-light};
   --color-text: #{vars.$color-text-light};
+  --color-modal-bg: #{vars.$color-modal-bg-light};
 }
 
 [data-theme='dark'] {
   --color-background: #{vars.$color-bg-dark};
   --color-text: #{vars.$color-text-dark};
+  --color-modal-bg: #{vars.$color-modal-bg-dark};
 }

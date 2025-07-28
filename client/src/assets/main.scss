@@ -11,6 +11,10 @@ body {
   transition: background-color 0.7s ease, color 0.7s ease;
 }
 
+.modal {
+  background-color: var(--color-modal-bg);
+}
+
 a,
 .green {
   text-decoration: none;

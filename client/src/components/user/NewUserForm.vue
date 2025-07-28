@@ -1,6 +1,6 @@
 <template>
   <div class="new-user-form__wrapper">
-    <form v-if="!successfullyForm"  @submit.prevent="submitForm" novalidate>
+    <form v-if="!successfullyForm"  @submit.prevent="submitForm" novalidate class="modal">
       <BaseInput
         v-model="user.name"
         label="Meno"
@@ -132,6 +132,7 @@ async function submitForm () {
     inset: 0;
     width: 100vw;
     height: 100vh;
+    backdrop-filter: blur(6px);
     background-color: rgba(0, 0, 0, 0.5);
   }
 
@@ -140,7 +141,6 @@ async function submitForm () {
     flex-direction: column;
     justify-content: flex-start;
     gap: 1rem;
-    background: #fff;
     padding: 3rem;
     z-index: 10;
   }
