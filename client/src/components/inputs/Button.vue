@@ -1,5 +1,5 @@
 <template>
-  <div class="base-button">
+  <div class="base-button" :size="size">
     <button :type="props.type" class="variant">
       <slot />
     </button>
@@ -22,6 +22,7 @@ const props = withDefaults(defineProps<{
 }>(), {
   type: 'button',
   variant: 'primary',
+  size: 'md',
   disabled: false
 })
 
@@ -29,11 +30,22 @@ const props = withDefaults(defineProps<{
 
 <style scoped lang="scss">
 
+.base-button[size='sm'] button{
+  @include input-size(sm);
+}
+
+.base-button[size='md'] button {
+  @include input-size(md);
+}
+
+.base-button[size='lg'] button{
+  @include input-size(lg);
+}
+
 .base-button {
   display: inline-block;
 
   button {
-    @include input-size(md);
     width: 100%;
     cursor: pointer;
     display: inline-flex;

@@ -6,7 +6,6 @@
         <button @click="editUser(item)">✏️</button>
         <button @click="deleteUser(item)">🗑️</button>
       </template>
-
     </DataTable>
   </div>
 </template>

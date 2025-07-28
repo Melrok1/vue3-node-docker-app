@@ -16,12 +16,14 @@
       <Button 
         type="submit" 
         variant="text"
+        size="md"
       >
         Create User
       </Button>
       <Button 
         @click="$emit('close')" 
         variant="text"
+        size="md"
       >
         Close
       </Button>

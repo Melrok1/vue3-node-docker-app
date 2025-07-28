@@ -8,7 +8,8 @@ export default {
     userCreated: 'Používateľ bol úspešne vytvorený'
   },
   actions: {
-    closeNow: 'Zatvoriť teraz'
+    closeNow: 'Zatvoriť teraz',
+    addUser: 'Pridať používateľa'
   },
   errors: {
     requiredName: 'Meno je povinné',

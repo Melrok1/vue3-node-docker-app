@@ -4,12 +4,15 @@
   @if $size == sm {
     height: $input-height-sm;
     font-size: $font-size-sm;
+    padding: 2px 10px;
   } @else if $size == md {
     height: $input-height-md;
     font-size: $font-size-md;
+    padding: 4px 15px;
   } @else if $size == lg {
     height: $input-height-lg;
     font-size: $font-size-lg;
+    padding: 6px 20px;
   } @else {
     @warn "Unknown input size `#{$size}`";
   }

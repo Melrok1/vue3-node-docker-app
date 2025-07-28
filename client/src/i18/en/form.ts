@@ -8,7 +8,8 @@ export default {
     userCreated: 'User was successfully created'
   },
   actions: {
-    closeNow: 'Close now'
+    closeNow: 'Close now',
+    addUser: 'Add User'
   },
   errors: {
     requiredName: 'Name is required',
