@@ -1,81 +1,66 @@
 <template>
-  <div class="base-input">
+  <div class="base-input" :class="[size, { 'has-error': !!error }]">
     <label :for="id">{{ label }}</label>
-
     <input
       :id="id"
       :type="type"
       :placeholder="placeholder"
       v-model="internalValue"
       :required="required"
-      @input="emit('update:modelValue', internalValue)"
-      :class="{ 'has-error': !!error }"
+      @input="$emit('update:modelValue', internalValue)"
     />
-
     <p v-if="error" class="error-message">{{ error }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import Ui from '@/models/ui'
+import type { SizeType } from '@/models/ui'
 
 const props = defineProps({
-  modelValue: {
-    type: String,
-    default: ''
+  modelValue: { 
+    type: String, 
+    default: '' 
   },
-  label: {
-    type: String,
-    required: true
+  label: { 
+    type: String, 
+    required: true 
   },
-  type: {
-    type: String,
-    default: 'text'
+  type: { 
+    type: String, 
+    default: 'text' 
   },
-  id: {
-    type: String,
-    default: () => `input-${Math.random().toString(36).slice(2)}`
+  id: { 
+    type: String, 
+    default: () => `input-${Math.random().toString(36).slice(2)}` 
   },
-  placeholder: {
-    type: String,
-    default: ''
+  placeholder: { 
+    type: String, 
+    default: '' 
   },
-  required: {
-    type: Boolean,
-    default: false
+  required: { 
+    type: Boolean, 
+    default: false 
   },
-  error: {
-    type: String,
-    default: ''
+  error: { 
+    type: String, 
+    default: '' 
+  },
+  size: { 
+    type: String as () => SizeType,
+    default: Ui.Size.MEDIUM 
   }
 })
 
-const emit = defineEmits(['update:modelValue'])
-
-// vnútorná hodnota viazaná na v-model
 const internalValue = ref(props.modelValue)
 
-// keď sa vonkajší modelValue zmení → aktualizuj internalValue
 watch(() => props.modelValue, (val) => {
   internalValue.value = val
 })
 </script>
 
-
 <style scoped lang="scss">
-
-.base-input[size='sm'] input {
-  @include input-size(sm);
-}
-
-.base-input[size='md'] input {
-  @include input-size(md);
-}
-
-.base-input[size='lg'] input {
-  @include input-size(lg);
-}
-
 .base-input {
   display: flex;
   flex-direction: column;
@@ -86,16 +71,18 @@ watch(() => props.modelValue, (val) => {
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-}
 
+  &.sm input { @include input-size(sm); }
+  &.md input { @include input-size(md); }
+  &.lg input { @include input-size(lg); }
 
-input.has-error {
-  border-color: var(--color-danger);
-}
+  &.has-error input {
+    border-color: var(--color-danger);
+  }
 
-.error-message {
-  color: var(--color-danger);
-  font-size: 0.875rem;
+  .error-message {
+    color: var(--color-danger);
+    font-size: 0.875rem;
+  }
 }
 </style>
-

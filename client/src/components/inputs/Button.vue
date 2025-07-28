@@ -1,62 +1,59 @@
 <template>
-  <div class="base-button" :size="size">
-    <button :type="props.type" class="variant">
-      <slot />
-    </button>
-  </div>
+  <button
+    class="base-button"
+    :class="[variant, size, { 'is-fullwidth': fullWidth }]"
+    :type="nativeType"
+    :disabled="disabled || loading"
+    @click="$emit('click', $event)"
+  >
+    <slot />
+  </button>
 </template>
 
 <script setup lang="ts">
+type Variant = 'primary' | 'secondary' | 'danger' | 'text' | 'icon'
+type Size = 'sm' | 'md' | 'lg'
+type ButtonType = 'button' | 'submit' | 'reset'
 
-type variant = 'primary' | 'secondary' | 'danger' | 'text' | 'icon'
-type size = 'sm' | 'md' | 'lg'
-type buttonType = 'button' | 'submit' | 'reset'
-
-const props = withDefaults(defineProps<{
-  type?: buttonType
-  variant?: variant
-  size?: size
-  loading?: boolean
-  disabled?: boolean
-  fullWidth?: boolean
-}>(), {
-  type: 'button',
-  variant: 'primary',
-  size: 'md',
-  disabled: false
+const props = defineProps({
+  nativeType: { 
+    type: String as () => ButtonType, 
+    default: 'button' 
+  },
+  variant: { 
+    type: String as () => Variant, 
+    default: 'primary' 
+  },
+  size: { 
+    type: String as () => Size, 
+    default: 'md' 
+  },
+  loading: { 
+    type: Boolean, 
+    default: false 
+  },
+  disabled: { 
+    type: Boolean, 
+    default: false 
+  },
+  fullWidth: { 
+    type: Boolean, 
+    default: false 
+  }
 })
-
 </script>
 
 <style scoped lang="scss">
-
-.base-button[size='sm'] button{
-  @include input-size(sm);
-}
-
-.base-button[size='md'] button {
-  @include input-size(md);
-}
-
-.base-button[size='lg'] button{
-  @include input-size(lg);
-}
-
 .base-button {
-  display: inline-block;
+  @include input-size(md);
 
-  button {
-    width: 100%;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #cecece;
+  &.sm { @include input-size(sm); }
+  &.md { @include input-size(md); }
+  &.lg { @include input-size(lg); }
 
-    &:hover {
-      background: #777777;
-    }
-  }
+  &.primary { background: #1d572e; color: white; }
+  &.danger { background: var(--color-danger); color: white; }
+
+  &.is-fullwidth { width: 100%; }
 }
-
 </style>

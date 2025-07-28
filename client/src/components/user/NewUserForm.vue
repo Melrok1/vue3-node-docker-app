@@ -5,6 +5,7 @@
         v-model="user.name"
         :label="$t('form.name')"
         :placeholder="$t('form.placeholders.name')"
+        :size="$Ui.Size.MEDIUM"
         :error="error.name"
       />
       <BaseInput
@@ -12,19 +13,20 @@
         :label="$t('form.email')"
         :placeholder="$t('form.placeholders.email')"
         type="email"
+        :size="$Ui.Size.MEDIUM"
         :error="error.email"
       />
       <Button 
         type="submit" 
         variant="text"
-        size="md"
+        :size="$Ui.Size.MEDIUM"
       >
         {{ $t('form.actions.addUser') }}
       </Button>
       <Button 
         @click="$emit('close')" 
         variant="text"
-        size="md"
+        :size="$Ui.Size.MEDIUM"
       >
         {{ $t('form.actions.closeNow') }}
       </Button>

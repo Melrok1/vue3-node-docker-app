@@ -12,6 +12,9 @@ enum ButtonVariant {
   ICON = 'icon'
 }
 
+export type SizeType = `${Size}`
+export type ButtonVariantType = `${ButtonVariant}`
+
 const Ui = {
   Size,
   ButtonVariant
