@@ -1,5 +1,5 @@
 <template>
-  <div class="base-input__wrapper">
+  <div class="base-input">
     <label :for="id">{{ label }}</label>
 
     <input
@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, watch } from 'vue'
 
 const props = defineProps({
   modelValue: {
@@ -61,18 +61,33 @@ watch(() => props.modelValue, (val) => {
 })
 </script>
 
-<style scoped>
-.base-input__wrapper {
+
+<style scoped lang="scss">
+
+.base-input[size='sm'] input {
+  @include input-size(sm);
+}
+
+.base-input[size='md'] input {
+  @include input-size(md);
+}
+
+.base-input[size='lg'] input {
+  @include input-size(lg);
+}
+
+.base-input {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+
+  input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 }
 
-input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
 
 input.has-error {
   border-color: var(--color-danger);
