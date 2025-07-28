@@ -3,13 +3,14 @@
     <form v-if="!successfullyForm"  @submit.prevent="submitForm" novalidate class="modal">
       <BaseInput
         v-model="user.name"
-        label="Meno"
-        placeholder="Zadajte meno"
+        :label="$t('form.name')"
+        :placeholder="$t('form.placeholders.name')"
         :error="error.name"
       />
       <BaseInput
         v-model="user.email"
-        label="Email"
+        :label="$t('form.email')"
+        :placeholder="$t('form.placeholders.email')"
         type="email"
         :error="error.email"
       />
@@ -18,14 +19,14 @@
         variant="text"
         size="md"
       >
-        Create User
+        {{ $t('form.actions.addUser') }}
       </Button>
       <Button 
         @click="$emit('close')" 
         variant="text"
         size="md"
       >
-        Close
+        {{ $t('form.actions.closeNow') }}
       </Button>
     </form>
     <div v-else class="confirmation success">

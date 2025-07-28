@@ -1,6 +1,10 @@
 export default {
   name: 'Name',
   email: 'Email',
+  placeholders: {
+    name: 'Enter your name',
+    email: 'Enter your email'
+  },
   userList: {
     title: 'List of all users'
   },
@@ -8,7 +12,7 @@ export default {
     userCreated: 'User was successfully created'
   },
   actions: {
-    closeNow: 'Close now',
+    closeNow: 'Close',
     addUser: 'Add User'
   },
   errors: {

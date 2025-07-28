@@ -1,6 +1,10 @@
 export default {
   name: 'Meno',
   email: 'Email',
+  placeholders: {
+    name: 'Zadajte svoje meno',
+    email: 'Zadajte svoj email'
+  },
   userList: {
     title: 'Zoznam všetkých používateľov'
   },
@@ -8,8 +12,8 @@ export default {
     userCreated: 'Používateľ bol úspešne vytvorený'
   },
   actions: {
-    closeNow: 'Zatvoriť teraz',
-    addUser: 'Pridať používateľa'
+    closeNow: 'Zatvoriť',
+    addUser: 'Pridať používateľa',
   },
   errors: {
     requiredName: 'Meno je povinné',
